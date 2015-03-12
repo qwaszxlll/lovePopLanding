@@ -130,13 +130,13 @@ $( window ).load(function() {
         var triHeight = Math.max(38-38*progressFrac, 5);
         $('#triangle').css({'border-top': triHeight + 'vw solid white'});
 
-        var offsetHeight = Math.min(62*progressFrac, 54);
-        $('#introElements').css({'top': (38-offsetHeight) + 'vh'});
-        $('#introElements').css({'opacity': (1 - 1.8*progressFrac)})
-        $('#bar').css({'opacity': (0.7 + 0.3*progressFrac)})
-        $('#whiteHeader').css('opacity', 10*progressFrac-7.5)
-        $('#triangle').css({'opacity': (0.7 + 0.3*progressFrac)})
-        $('#headerButtons').css({'top': (58-offsetHeight) + 'vh'});
+        var offsetHeight = Math.min(30*progressFrac, 24);
+        $('#introElements').css({'top': (25-offsetHeight) + 'vw'});
+        $('#scrollDown').css({'opacity': (1 - 1.8*progressFrac)})
+        $('#headerLogo').css('width', Math.max(7, 10-3*progressFrac) + 'vw');
+        $('#whiteHeader').css('opacity', 10*progressFrac-7.5);
+        $('#bar').css({'opacity': (0.7 + 0.4*progressFrac)});
+        $('#triangle').css({'opacity': (0.7 + 0.4*progressFrac)});
 
         bounceArrows();
     }

@@ -56,7 +56,7 @@ body {
   z-index: 2;
   position: fixed;
   width:99.6vw;
-  height:15vh;
+  height:8vw;
   background-image: url('resources/whiteHeader.png');
   background-size: 100% 100%;
   background-position: center;
@@ -123,7 +123,7 @@ body {
     display:none;
     z-index:100;
     font-size:1.4em;
-    top:18vw;
+    top:25vw;
   }
 
   #headerLogo {
@@ -140,7 +140,7 @@ body {
   }
 
   #scrollDown {
-    margin-top:25vh;
+    margin-top:15vh;
     text-align: center;
     color: white;
     display:none;
@@ -156,10 +156,13 @@ body {
   }
 
   #headerButtons {
+    position: fixed;
+    top:0.3em;
+    right:2em;
+    text-align:right;
     display:none;
     z-index: 100;
     font-size:1.2em;
-    top:58vh;
   }
 
   .hoverButton {
