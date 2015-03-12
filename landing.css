@@ -1,0 +1,359 @@
+html{
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-weight:200;
+    color:white;
+    max-width:100%;
+    overflow-x:hidden;
+}
+
+body {
+    padding:0;
+    margin:0;
+    max-width:100%;
+    overflow-x:hidden;
+}
+
+/*div {
+  -webkit-transition: background-position 0.01s ease-in 0; 
+  transition: background-position 0.01s ease-in 0;
+}*/
+
+#progressFactor {
+  z-index: 1000;
+  color:red;
+  position:fixed;
+  left: 50vw;
+}
+
+#loaded {
+  overflow:hidden;
+}
+#bar {
+  z-index: 3;
+  width: 100vw;
+  height: 1.8vw;
+  left:0;
+  position:fixed;
+  background: white;
+  opacity: 0.7;
+}
+
+#triangle {
+  z-index: 3;
+  top:1.8vw;
+  width: 0;
+  height: 0;
+  left:0;
+  position:fixed;
+  border-left: 50vw solid transparent;
+  border-right: 50vw solid transparent;
+  border-top: 38vw solid white;
+  opacity: 0.7;
+}
+
+#whiteHeader {
+  left:0;
+  z-index: 2;
+  position: fixed;
+  width:99.6vw;
+  height:15vh;
+  background-image: url('resources/whiteHeader.png');
+  background-size: 100% 100%;
+  background-position: center;
+  opacity:0;
+}
+
+#copyright {
+  position:fixed;
+  height:2em;
+  left:10px;
+  bottom:10px;
+  float:left;
+}
+
+#contactClosed {
+  z-index:1000;
+  position:fixed;
+  width:3em;
+  right:10px;
+  bottom:10px;
+  float:right;
+  display: default;
+}
+
+#contactClosed:hover {
+  box-shadow: 0px 0px 5px black;
+}
+
+#contactOpen{
+  z-index:1000;
+  position:fixed;
+  width:3em;
+  right:10px;
+  bottom:10px;
+  float:right;
+  display:none;
+}
+
+/* INTRO */
+  #startingBackground {
+    z-index: -1000;
+    position: fixed;
+    top: 0;
+    left:-5vw;
+    width:110vw;
+    height:200vh;
+    text-align:center;
+    background-image: url('resources/starbucksShip.jpg');
+    background-position:0 -50vw;
+    background-size: cover;
+    overflow:hidden;
+    -webkit-filter: blur(20px);
+  }
+
+  .intro{
+    text-align: center;
+    font-weight:200;
+    color: #BF1E2E;
+    position:fixed;
+    width:100vw;
+  }
+
+  #introElements {
+    display:none;
+    z-index:100;
+    font-size:1.4em;
+    top:18vw;
+  }
+
+  #headerLogo {
+    width:10vw;
+    height:auto;
+  }
+
+  #startSpacer {
+      height: 180vh;
+  }
+
+  #motto {
+    font-weight: 500;
+  }
+
+  #scrollDown {
+    margin-top:25vh;
+    text-align: center;
+    color: white;
+    display:none;
+  }
+
+  .scrollDownArrows {
+    width: 2em;
+  }
+
+  #bounceContainer {
+    width:2em;
+    margin: 0 auto;
+  }
+
+  #headerButtons {
+    display:none;
+    z-index: 100;
+    font-size:1.2em;
+    top:58vh;
+  }
+
+  .hoverButton {
+      z-index: 100;
+      padding-left:1em;
+      padding-right:1em;
+      display:inline-block;
+      cursor: pointer;
+  }
+  .hoverButton:hover {
+      /*color:#BF1E2D;*/
+      color:#E299A0;
+  }
+
+/* SCENE 1 */
+  #scene1 {
+    color:#BF1E2E;
+  }
+
+  #text1 {
+    display:inline-block;
+    height:15em;
+    width: 35em;
+    max-width:70vw;
+  }
+
+  #spacer1 {
+    display:block;
+    width:100vw;
+  }
+
+  #swatch {
+    display: inline-block;
+    height: 50em;
+    max-width:80vw;
+    margin-top: -20em;
+  }
+
+  #content1 {
+    height:22em;
+    margin-top:-10em;
+    background:white;
+  }
+
+  #chevron1 {
+    margin-bottom: 12em;
+  }
+
+  #chevron1:before {
+    height: 70em;
+    background: white;
+    border-top: 1em solid #BF1E2E;
+  }
+  #chevron1:after {
+    height: 70em;
+    background: white;
+    border-top: 1em solid #BF1E2E;
+  }
+
+/* SCENE 2 */
+  #scene2 {
+    color:#BF1E2E;
+  }
+
+  #content2 {
+    height:75vw;
+    top: 10em;
+    background-image: url('resources/cake.jpg');
+    background-position:0 -10vw;
+  }
+
+  #chevron2:before {
+    height: 20em;
+    background: #BF1E2E;
+  }
+  #chevron2:after {
+    height: 20em;
+    background: #BF1E2E;
+  }
+
+/* SCENE 3 */
+  #scene3 {
+    color:white;
+  }
+
+  #content3 {
+    height:65vw;
+    top: 10em;
+    background-image: url('resources/couple.jpg');
+    background-position:0 0;
+  }
+
+  #chevron3:before {
+    height: 20em;
+    background: #18171A;
+  }
+  #chevron3:after {
+    height: 20em;
+    background: #18171A;
+  }
+
+/* SCENE 4 */
+  #scene4 {
+    color: #BF1E2E;
+  }
+
+  #content4 {
+    height:65vw;
+    top: 10em;
+    background-image: url('resources/elephantFamily.jpg');
+    background-position:0 0;
+  }
+
+  #chevron4:before {
+    height: 20em;
+    background: white;
+  }
+  #chevron4:after {
+    height: 20em;
+    background: white;
+  }
+
+/* Footer */
+  #chevron5:before {
+    height: 20em;
+    background: white;
+    /*border-top: 1em solid #BF1E2E;*/
+  }
+  #chevron5:after {
+    height: 20em;
+    background: white;
+    /*border-top: 1em solid #BF1E2E;*/
+  }
+  #footer {
+    z-index:1000;
+    margin-top:10em;
+    height:20em;
+    background: white;
+  }
+
+
+/* Classes */
+  #spacer {
+      height: 1000em;
+  }
+
+  .scene {
+    position:relative;
+    top:0;
+    width:100%;
+    text-align: center;
+  }
+
+  .content {
+    position:relative;
+    z-index:-3;
+    width:100vw;
+    background-size: cover;
+  }
+
+  .chevron {
+    z-index: -2;
+    position: top;
+    text-align: center;
+    margin-bottom: 0.5em;
+    padding:1em;
+    width: 100vw;
+  }
+
+  .chevron:before {
+    z-index: -2;
+    content: '';
+    position: absolute;
+    left: 0;
+    width: 50vw;
+    -webkit-transform: skew(0deg, 6deg);
+    -moz-transform: skew(0deg, 6deg);
+    -ms-transform: skew(0deg, 6deg);
+    -o-transform: skew(0deg, 6deg);
+    transform: skew(0deg, 6deg);
+  }
+
+  .chevron:after {
+    z-index: -2;
+    content: '';
+    position: absolute;
+    left: 50vw;
+    width: 50vw;
+    -webkit-transform: skew(0deg, -6deg);
+    -moz-transform: skew(0deg, -6deg);
+    -ms-transform: skew(0deg, -6deg);
+    -o-transform: skew(0deg, -6deg);
+    transform: skew(0deg, -6deg);
+  }​
+
+
+
