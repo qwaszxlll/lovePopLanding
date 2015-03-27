@@ -19,13 +19,20 @@ $( window ).load(function() {
     var startGif = generateGifParams();
     var contactClosed = true;
 
-    runLoadingAnimations(1000);
+//Pin Static Scenes
+    var scene2Pin = $('#scene2').offset().top;
+    $('#parallaxContent').css({'position': 'absolute', 'top': scene2Pin});
+    $('#credits').css({'top': $('#content4').offset().top+$('#content4').height()-30});
 
+    runLoadingAnimations(500);
+
+// SCROLL BLOCK
     $(document).scroll(function( e ) {
         //Update scrolling variables on each scroll event
         scrollPos = $(document).scrollTop();
         progressFrac = scrollPos/800;
 
+        handleContactBox();
         //Intro
         handleIntro(2);
         
@@ -33,7 +40,7 @@ $( window ).load(function() {
         animateScene1(startGif, 300, 17);
 
         //Scene 2
-        animateParallax('#content2', -60, 100);
+        animateParallax('#content2', -30, 50);
 
         //Scene 3
         animateParallax('#content3', -50, 100);
@@ -43,14 +50,25 @@ $( window ).load(function() {
         
     })
 
-    $('#contactClosed').click( function(e) {
-        $('#contactClosed').fadeOut();
-        $('#contactOpen').fadeIn();
+//Listener Functions
+    $('#cContainer').mouseenter( function() {
+        $('#contactClosed').css('box-shadow', '0px 0px 5px black');
+    });
+    $('#cContainer').mouseleave( function() {
+        $('#contactClosed').css('box-shadow', '');
     });
 
-     $('#contactOpen').click( function(e) {
-        $('#contactOpen').fadeOut();
-        $('#contactClosed').fadeIn();
+    $('#cContainer').click( function(e) {
+        $('#contactClosed').toggle();
+        $('#contactOpen').toggle();
+        $('#contactUs').slideToggle(600);
+    });
+
+    $('#scrollDown').click( function(e) {
+        $('html,body').animate({
+          scrollTop: $('#text1').offset().top-$(window).height()-80
+        }, 3000);
+        $('#scrollDown').fadeOut(1000);
     });
 
 // Helper functions
@@ -59,7 +77,7 @@ $( window ).load(function() {
         var viewWidth = $(window).width();
         var gifHeight = $('#swatch').height();
         var gifOffset = $('#swatch').offset().top;
-        var gifCutoff = 0.85;
+        var gifCutoff = 0.9;
 
         var startGif = gifOffset+gifCutoff*gifHeight-viewHeight;
         var altStart = $('#text1').offset().top-0.09*viewWidth;
@@ -110,6 +128,15 @@ $( window ).load(function() {
     }
 
 //Macro Animation Helpers
+    function handleContactBox(){
+        if (progressFrac>1 && progressFrac<3){
+            $('#contactUs').css({'border': 'solid 0.4em #BF1E2E', 'right': '0.6em', 'bottom': '3.6em'});
+        }
+        else{
+            $('#contactUs').css({'border': '', 'right': '1em', 'bottom': '4em'});
+        }
+    }
+
     function handleIntro(cutoffFactor){
         if (progressFrac<cutoffFactor) {
             //hideIntro = false; //used in checkElements
@@ -124,7 +151,8 @@ $( window ).load(function() {
     }
 
     function animateIntro () {
-        var blurSize = Math.max(20-20*progressFrac, 0);
+        $('#scrollDown').css('display', 'default');
+        var blurSize = Math.max(20-30*progressFrac, 0);
         $('#startingBackground').css({'-webkit-filter': 'blur(' + blurSize + 'px)'});
 
         var triHeight = Math.max(38-38*progressFrac, 5);
@@ -134,15 +162,17 @@ $( window ).load(function() {
         $('#introElements').css({'top': (25-offsetHeight) + 'vw'});
         $('#scrollDown').css({'opacity': (1 - 1.8*progressFrac)})
         $('#headerLogo').css('width', Math.max(7, 10-3*progressFrac) + 'vw');
+        // $('#headerLogo').css('height', Math.max(0, 8-10*progressFrac) + 'vw'); for height scaling
         $('#whiteHeader').css('opacity', 10*progressFrac-7.5);
         $('#bar').css({'opacity': (0.7 + 0.4*progressFrac)});
         $('#triangle').css({'opacity': (0.7 + 0.4*progressFrac)});
+        $('#introText').css('opacity', 4*progressFrac-2);
 
         bounceArrows();
     }
 
     function animateStartingBackground() {
-        var scene1Pos = Math.max(50+15*(progressFrac-1), 50);
+        var scene1Pos = Math.max(15*(progressFrac-1), 0);
         $('#startingBackground').css({'background-position': '0 -' + scene1Pos + 'vw'});
     }
 
@@ -155,12 +185,19 @@ $( window ).load(function() {
 
         //Fade in as scrolling towards image
         if (scene1Frac>(-1) && scene1Frac<1.5) {
+            $('#introText').css('opacity', 0);
+            $('#scrollDown').css('display', 'none');
+
             $( "#swatch" ).css({'opacity': (1+scene1Frac)})
         }
 
         //Pause scrolling 
         if(scene1Frac>0 && scene1Frac<1) {
             $('#scene1').css({'top': scene1Top});
+        }
+
+        if (scene1Frac>1){
+            $('#scene1').css({'top': duration});
         }
 
         //$('#progressFactor').text($('#triangle').offset().top);

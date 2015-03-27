@@ -63,38 +63,6 @@ body {
   opacity:0;
 }
 
-#copyright {
-  position:fixed;
-  height:2em;
-  left:10px;
-  bottom:10px;
-  float:left;
-}
-
-#contactClosed {
-  z-index:1000;
-  position:fixed;
-  width:3em;
-  right:10px;
-  bottom:10px;
-  float:right;
-  display: default;
-}
-
-#contactClosed:hover {
-  box-shadow: 0px 0px 5px black;
-}
-
-#contactOpen{
-  z-index:1000;
-  position:fixed;
-  width:3em;
-  right:10px;
-  bottom:10px;
-  float:right;
-  display:none;
-}
-
 /* INTRO */
   #startingBackground {
     z-index: -1000;
@@ -102,10 +70,10 @@ body {
     top: 0;
     left:-5vw;
     width:110vw;
-    height:200vh;
+    height:100vh;
     text-align:center;
-    background-image: url('resources/starbucksShip.jpg');
-    background-position:0 -50vw;
+    background-image: url('resources/allCards.jpg');
+    background-position:0 0;
     background-size: cover;
     overflow:hidden;
     -webkit-filter: blur(20px);
@@ -126,8 +94,20 @@ body {
     top:25vw;
   }
 
+  #introText {
+    z-index:-2;
+    position:fixed;
+    width:100%;
+    text-align: center;
+    margin-top:50vh;
+    font-size:2em;
+    font-weight:200;
+    opacity:0;
+  }
+
   #headerLogo {
     width:10vw;
+    /*height:8vw; for scaling height*/
     height:auto;
   }
 
@@ -140,10 +120,12 @@ body {
   }
 
   #scrollDown {
-    margin-top:15vh;
+    position:fixed;
+    bottom:1em;
     text-align: center;
     color: white;
     display:none;
+    cursor:pointer;
   }
 
   .scrollDownArrows {
@@ -157,8 +139,8 @@ body {
 
   #headerButtons {
     position: fixed;
-    top:0.3em;
-    right:2em;
+    top:0.4em;
+    right:1em;
     text-align:right;
     display:none;
     z-index: 100;
@@ -184,14 +166,33 @@ body {
 
   #text1 {
     display:inline-block;
-    height:15em;
+    height:12em;
     width: 35em;
     max-width:70vw;
+    margin-top:-10em;
   }
 
   #spacer1 {
     display:block;
     width:100vw;
+  }
+
+  #swatchLink{
+    width:100%;
+    margin-top:-9.5em;
+    margin-bottom:8em;
+    padding:1em;
+    text-align: left;
+  }
+
+  #swatchLink a{
+    padding:1em;
+    padding-left:53%;
+    color: #E299A0;
+  }
+
+  #swatchLink a:hover{
+    color: #BF1E2E;
   }
 
   #swatch {
@@ -202,7 +203,7 @@ body {
   }
 
   #content1 {
-    height:22em;
+    height:30em;
     margin-top:-10em;
     background:white;
   }
@@ -212,80 +213,130 @@ body {
   }
 
   #chevron1:before {
-    height: 70em;
+    height: 55em;
     background: white;
     border-top: 1em solid #BF1E2E;
   }
   #chevron1:after {
-    height: 70em;
+    height: 55em;
     background: white;
     border-top: 1em solid #BF1E2E;
   }
 
 /* SCENE 2 */
+  #parallaxContent {
+    margin-top:-5em;
+  }
+
   #scene2 {
     color:#BF1E2E;
   }
 
+  #text2 {
+    margin-top:5em;
+    color: white;
+  }
+
   #content2 {
-    height:75vw;
-    top: 10em;
-    background-image: url('resources/cake.jpg');
+    z-index:-500;
+    height:65vw;
+    top: 0;
+    background-image: url('resources/personalWide.jpg');
     background-position:0 -10vw;
   }
 
   #chevron2:before {
-    height: 20em;
+    height: 15em;
     background: #BF1E2E;
   }
   #chevron2:after {
-    height: 20em;
+    height: 15em;
     background: #BF1E2E;
   }
 
 /* SCENE 3 */
   #scene3 {
+    margin-top:-10em;
     color:white;
+  }
+
+  #text3 {
+    margin-top: -1em;
+    color: white;
   }
 
   #content3 {
     height:65vw;
-    top: 10em;
-    background-image: url('resources/couple.jpg');
+    background-image: url('resources/cupcakes.jpg');
     background-position:0 0;
   }
 
   #chevron3:before {
-    height: 20em;
+    margin-top:-5em;
+    height: 15em;
     background: #18171A;
   }
   #chevron3:after {
-    height: 20em;
+    margin-top:-5em;
+    height: 15em;
     background: #18171A;
   }
 
 /* SCENE 4 */
   #scene4 {
+    margin-top:-10em;
     color: #BF1E2E;
   }
 
+  #text4 {
+    margin-top: -1em;
+    color: #BF1E2E;
+    text-align: center;
+  }
+
   #content4 {
-    height:65vw;
+    margin-top:-10em;
+    height:60vw;
     top: 10em;
-    background-image: url('resources/elephantFamily.jpg');
+    background-image: url('resources/blueprint.jpg');
     background-position:0 0;
   }
 
   #chevron4:before {
-    height: 20em;
-    background: white;
-  }
-  #chevron4:after {
-    height: 20em;
+    margin-top:-5em;
+    height: 15em;
     background: white;
   }
 
+  #chevron4:after {
+    margin-top:-5em;
+    height: 15em;
+    background: white;
+  }
+
+  #startShopping {
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    width: 30%;
+    margin-left:35%;
+    margin-top: -6em;
+    padding-top:1em;
+    padding-bottom:1em;
+    font-size:2em;
+    border-radius:3px;
+    cursor: pointer;
+  }
+
+  #credits {
+    position:absolute;
+    color: white;
+    width: 100%;
+    text-align:center;
+    bottom: 0;
+  }
+
 /* Footer */
+
   #chevron5:before {
     height: 20em;
     background: white;
@@ -302,6 +353,103 @@ body {
     height:20em;
     background: white;
   }
+
+  #copyright {
+    position:fixed;
+    height:2em;
+    left:1em;
+    bottom:1em;
+    float:left;
+  }
+
+/* Contact Us Popout */
+  #cContainer{
+    z-index:1000;
+    position:fixed;
+    width:10em;
+    right:1em;
+    bottom:1em;
+    float:right;
+    text-align: right;
+    cursor:pointer;
+    text-shadow: 0 0 5px black;
+  }
+
+  #contactClosed {
+    position:fixed;
+    right:6.5em;
+    bottom:0.8em;
+    float:right;
+    width:3em;
+    display: default;
+  }
+
+  #contactOpen{
+    position:fixed;
+    right:6.5em;
+    bottom:0.8em;
+    float:right;
+    width:3em;
+    display:none;
+  }
+
+  #cButtonText{
+    display:inline-block;
+  }
+
+  #contactUs{
+    display:none;
+    z-index: 10000;
+    position: fixed;
+    bottom: 4em;
+    right: 1em;
+    background:white;
+    padding: 1.5em;
+    color: #BF1E2E;
+    /*border: solid 0.5em #BF1E2E;*/
+  }
+
+  #cTitle{
+    margin:0;
+    margin-bottom:1em;
+    font-weight:500;
+  }
+
+  .textField{
+    display:block;
+    margin: 1em;
+    width: 18em;
+    padding:0.5em;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-weight:200;
+    font-size:1em;
+  }
+
+  #cMessage{
+    height: 6em;
+    resize:none;
+    border-color: #CCCCCC;
+  }
+
+  #cCheckbox{
+    text-align: right;
+    width:100%;
+  }
+
+  #cSubmit{
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-weight:200;
+    font-size:1em;
+    color:white;
+    background: #BF1E2E;
+    border:none;
+    height: 2em;
+    width: 6em;
+    margin-top:1em;
+    float:right;
+    cursor:pointer;
+  }
+
 
 
 /* Classes */

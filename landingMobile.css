@@ -1,0 +1,52 @@
+body {
+    margin:0;
+    padding:0;
+    text-align:center;
+    overflow-y: scroll;
+    -webkit-overflow-scrolling: touch;
+}
+
+#background {
+    z-index: -2;
+    position:fixed;
+    top: 0;
+    left:-5vw;
+    width:110vw;
+    height:100vh;
+    background-image: url('resources/mobile/baby.jpg');
+    background-size: cover;
+    background-position:center;
+}
+
+#header {
+    z-index:10;
+    position:fixed;
+    top:0;
+    left:0;
+    width:101%;
+}
+
+.scene {
+    z-index:5;
+    width:90%;
+    margin-top:8em;
+    margin-bottom:10em;
+}
+
+#footerTop {
+    z-index:10000;
+    position:fixed;
+    bottom:0;
+    left:0;
+    width:100%;
+}
+
+#footerBot {
+    z-index:-1;
+    position:fixed;
+    bottom:0;
+    left:0;
+    width:100%;
+}
+
+
