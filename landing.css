@@ -103,6 +103,7 @@ body {
     font-size:2em;
     font-weight:200;
     opacity:0;
+    text-shadow:0 0 10px white, 0 0 8px black;
   }
 
   #headerLogo {
@@ -319,7 +320,7 @@ body {
     color: white;
     width: 30%;
     margin-left:35%;
-    margin-top: -6em;
+    margin-top: -35vh;
     padding-top:1em;
     padding-bottom:1em;
     font-size:2em;

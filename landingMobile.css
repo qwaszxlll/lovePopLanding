@@ -1,14 +1,19 @@
-body {
+/*body {
     margin:0;
     padding:0;
     text-align:center;
     overflow-y: scroll;
+    overflow-x:hidden;
     -webkit-overflow-scrolling: touch;
+}*/
+
+/*#spacer {
+    height:60vh;
 }
 
 #background {
     z-index: -2;
-    position:fixed;
+    position:static;
     top: 0;
     left:-5vw;
     width:110vw;
@@ -16,17 +21,42 @@ body {
     background-image: url('resources/mobile/baby.jpg');
     background-size: cover;
     background-position:center;
-}
+}*/
 
-#header {
+/*#backgroundLogo {
+    z-index:-1;
+    position:fixed;
+    width:30vw;
+    left:35vw;
+    top:35vh;
+}*/
+
+#mHeader {
     z-index:10;
     position:fixed;
     top:0;
     left:0;
     width:101%;
+    height:10vh;
+    background:white;
 }
 
-.scene {
+#mLogo {
+    height:8vh;
+    margin-left:-9vh;
+    margin-top:1vh;
+
+}
+
+#listButton {
+    float:left;
+    padding-left:2vh;
+    padding-top:2vh;
+    height:6vh;
+    width:9vh;
+}
+
+/*.scene {
     z-index:5;
     width:90%;
     margin-top:8em;
@@ -47,6 +77,10 @@ body {
     bottom:0;
     left:0;
     width:100%;
+}*/
+
+#scroller {
+    width:101%;
 }
 
 

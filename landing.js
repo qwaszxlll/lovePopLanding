@@ -4,9 +4,18 @@
 
 //Force window to start at scrollPos=0 on load and reload
 window.onload = function() {
- setTimeout (function () {
-  scrollTo(0,0);
- }, 100); //100ms for example
+    setTimeout (function () {
+        scrollTo(0,0);
+    }, 100); //100ms for example
+
+    if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
+        $('#web').css('display', 'none');
+        $('#mobile').css('display', 'default');
+        $('body').css('text-align', 'center');
+    } else {
+        $('#web').css('display', 'default');
+        $('#mobile').css('display', 'none');
+    }
 }
 
 

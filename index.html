@@ -3,22 +3,125 @@
 <html>
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <title>LovePop Cards Mobile</title>
+    <title>LovePop Cards</title>
+    <link type="text/css" href="landing.css" rel="stylesheet" />
     <link type="text/css" href="landingMobile.css" rel="stylesheet" />
 
     <script src="http://code.jquery.com/jquery-1.10.2.js"></script>
     <script src="http://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
     <script src="http://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.0/ScrollMagic.min.js"></script>
+    <script src='scrollTo/jquery.scrollTo.min.js'></script>
+    <script type="text/javascript" src="landing.js"></script>
 
   </head>
   <body>
-    <div id='background'></div>
-    <img id='header' src='resources/mobile/HeaderBar.png'>
-    <img class='scene' src='resources/mobile/scene1.png'>
-    <img class='scene' src='resources/mobile/scene2.png'>
-    <img class='scene' src='resources/mobile/scene3.png'>
-    <img id='footerTop' src='resources/mobile/envelopeTop.png'>
-    <img id='footerBot' src='resources/mobile/envelopeBottom.png'>
-    <div id='spacer'></div>
+    <div id="web">
+      <div id='bar'></div>
+      <div id='triangle'></div>
+      <div id='whiteHeader'></div>
+      <div id='startingBackground'></div>
+      <div id='progressFactor'></div>
+
+      <div id='headerButtons' class='intro'> 
+        <div class='hoverButton'> Shop </div>
+        <div class='hoverButton'> Blog </div>
+      </div>
+      
+      <div id='loaded'>
+        <div id='introElements' class='intro'>
+          <img id='headerLogo' src='resources/logoRed.png'>
+         <!--  <div id='motto'> 
+            Give your loved ones a card that stands out. 
+            Your lovepop experience starts today.
+          </div> -->
+          <div id='scrollDown' class='intro'>
+            <p id='scrollPrompt'>Scroll Down<p>
+            <div id='bounceContainer'>
+              <img class='scrollDownArrows' src='resources/scrollArrowsWhite.png'>
+            </div>
+          </div>
+        </div>
+        <div id='introText' class='text'>
+          Give Your Loved Ones A Card That Stands Out
+        </div>
+        <div id='startSpacer'></div>
+
+        <div id='scene1' class='scene'>
+          <div id='chevron1' class='chevron'></div>
+          <div id='text1' class='text'>
+            <h1>Celebrate The Unexpected</h1>
+            When is the last time you got something in the mail that wasn’t junk?
+          </div>
+          <div id='spacer1'></div>
+          <img id="swatch" src="resources/frames/1.gif">
+          <div id='swatchLink'>
+            <a href="http://lovepopcards.com/product/serene-pink-cherry-blossoms/"> Send this cherry blossom to someone special!</a>
+          </div> 
+          <div id='content1' class='content'></div>
+        </div>
+        <div id='parallaxContent'>
+          <div id='scene2' class='scene'>
+            <div id='chevron2' class='chevron'></div>
+            <div id='text2' class='text'>
+              <h1>A Personal Connection</h1>
+              A gift means so much more when it comes it’s deeply personal and embodies the relationship between two people.
+            </div>
+            <div id='content2' class='content'></div>
+          </div>
+
+          <div id='scene3' class='scene'>
+            <div id='chevron3' class='chevron'></div>
+            <div id='text3' class='text'>
+              <h1>A Physical Connection</h1>
+              In today’s hectic, digital world, a lot of connections are superficial, but we believe in the power of real, tangible messages. 
+            </div>
+            <div id='content3' class='content'></div>
+          </div>
+
+          <div id='scene4' class='scene'>
+            <div id='chevron4' class='chevron'></div>
+            <div id='text4' class='text'>
+              <h1>A Passion In Design</h1>
+              We put all the care that you want to express to the closest people in your life into the design and creation of these cards.
+            </div>
+            <div id='content4' class='content'></div>
+            <div id='startShopping'>Start Shopping Now!</div>
+          </div>
+          
+          
+          <!-- <div id='chevron5' class='chevron'></div> -->
+          <!-- <div id='footer'></div> -->
+        </div>
+        <div id='credits'>site by Caleb Lin</div>
+
+        
+        <img id='copyright' src='resources/copyright2.png'>
+        <div id='cContainer'>
+          <img id='contactClosed' src='resources/contactClosed.png'>
+          <img id='contactOpen' src='resources/contactOpen.png'>
+          <div id='cButtonText'>Contact Us</div>
+        </div>
+
+        <form id='contactUs'>
+          <h1 id='cTitle'> Send Us A Message! </h1>
+            Full Name <input id='cName' class='textField' type='text' name='cName'>
+            Email <input id='cEmail' class='textField' type='text' name='cEmail'>
+            Message <textarea id='cMessage' class='textField' type='text' name = 'cMessage'></textarea>
+             
+            <div id='cCheckbox'>
+              Join Our Mailing List <input type='checkbox'>
+            </div>
+            <input id='cSubmit' type='submit' value='Send'>
+        </form>
+      </div>
+    </div>
+
+    <div id="mobile">
+      <img id='scroller' src='resources/scroller.png'>
+      <div id='mHeader'>
+        <img id='mLogo' src='resources/logoRed.png'>
+        <img id='listButton' src='resources/mobile/listButton.png'>
+      </div>
+    </div>
   </body>
 </html>
