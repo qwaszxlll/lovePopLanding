@@ -17,6 +17,13 @@ body {
   -webkit-transition: background-position 0.01s ease-in 0; 
   transition: background-position 0.01s ease-in 0;
 }*/
+#web {
+  opacity:0;
+}
+
+#mobile {
+  opacity:0;
+}
 
 #progressFactor {
   z-index: 1000;
@@ -242,7 +249,7 @@ body {
     z-index:-500;
     height:65vw;
     top: 0;
-    background-image: url('resources/personalWide.jpg');
+    background-image: url("resources/personalWide.jpg");
     background-position:0 -10vw;
   }
 

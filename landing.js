@@ -2,25 +2,33 @@
 //  Primary Red:            rgba(191, 30, 45, 1)
 //  Secondary (light) Red:  rgba(203, 72, 85, 1)    #CB4855
 
+if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
+    $('#web').css('display', 'none');
+    $('#mobile').css('opacity', 1);
+    $('body').css('text-align', 'center');
+} else {
+    $('#web').css('opacity', 1);
+    $('#mobile').css('display', 'none');
+}
+
 //Force window to start at scrollPos=0 on load and reload
 window.onload = function() {
     setTimeout (function () {
         scrollTo(0,0);
     }, 100); //100ms for example
-
     if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
         $('#web').css('display', 'none');
-        $('#mobile').css('display', 'default');
+        $('#mobile').css('opacity', 1);
         $('body').css('text-align', 'center');
     } else {
-        $('#web').css('display', 'default');
+        $('#web').css('opacity', 1);
         $('#mobile').css('display', 'none');
     }
 }
 
 
 //Primary Functionality
-$( window ).load(function() {
+$( window ).ready(function() {
     //initiate global variables
     var scrollPos = 0;
     var progressFrac = 0;
@@ -78,6 +86,10 @@ $( window ).load(function() {
           scrollTop: $('#text1').offset().top-$(window).height()-80
         }, 3000);
         $('#scrollDown').fadeOut(1000);
+    });
+
+    $('.hoverButton').hover(function() {
+        $('.hoverbutton').css('color', '#E299A0');
     });
 
 // Helper functions
