@@ -13,16 +13,20 @@ body {
     overflow-x:hidden;
 }
 
-/*div {
-  -webkit-transition: background-position 0.01s ease-in 0; 
-  transition: background-position 0.01s ease-in 0;
-}*/
+div {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    cursor:default;
+}
 #web {
   opacity:0;
 }
-
 #mobile {
-  opacity:0;
+  display:none;
 }
 
 #progressFactor {
@@ -33,6 +37,7 @@ body {
 }
 
 #loaded {
+  z-index: -1;
   overflow:hidden;
 }
 #bar {
@@ -72,8 +77,9 @@ body {
 
 /* INTRO */
   #startingBackground {
-    z-index: -1000;
+    z-index: -8;
     position: fixed;
+    display:none;
     top: 0;
     left:-5vw;
     width:110vw;
@@ -96,7 +102,7 @@ body {
 
   #introElements {
     display:none;
-    z-index:100;
+    z-index:3;
     font-size:1.4em;
     top:25vw;
   }
@@ -114,6 +120,7 @@ body {
   }
 
   #headerLogo {
+    z-index:4;
     width:10vw;
     /*height:8vw; for scaling height*/
     height:auto;
@@ -128,42 +135,67 @@ body {
   }
 
   #scrollDown {
+    z-index:1;
     position:fixed;
+    width:10vw;
+    left:45vw;
     bottom:1em;
     text-align: center;
     color: white;
     display:none;
+  }
+
+  #scrollDownArrows {
+    z-index:5;
+    width: 2em;
+     -webkit-animation:bounce 1s infinite;
+  }
+
+  @-webkit-keyframes bounce {
+  0%{
+    margin-top:0px;
+    margin-bottom:-0px;
+  }
+  
+  25%, 75% {
+    margin-top:5px;
+    margin-bottom:-5px;
+  }
+  
+  
+  50% {
+    margin-top:10px;
+    margin-bottom:-10px;
+  }
+  
+  100% {
+    margin-bottom:0;
+  }
+}
+
+  .scrollClick{
     cursor:pointer;
   }
 
-  .scrollDownArrows {
-    width: 2em;
-  }
-
-  #bounceContainer {
-    width:2em;
-    margin: 0 auto;
-  }
-
-  #headerButtons {
+  #headerButtons{
     position: fixed;
     top:0.4em;
     right:1em;
     text-align:right;
-    display:none;
-    z-index: 100;
+    z-index: 4;
     font-size:1.2em;
   }
 
-  .hoverButton {
-      z-index: 100;
+  #headerButtons a {
+      z-index: 10;
       padding-left:1em;
       padding-right:1em;
       display:inline-block;
+      color:#BF1E2E;
+      text-decoration:none;
       cursor: pointer;
   }
-  .hoverButton:hover {
-      /*color:#BF1E2D;*/
+#headerButtons a:hover {
       color:#E299A0;
   }
 
@@ -186,6 +218,7 @@ body {
   }
 
   #swatchLink{
+    z-index:8;
     width:100%;
     margin-top:-9.5em;
     margin-bottom:8em;
@@ -204,6 +237,7 @@ body {
   }
 
   #swatch {
+    z-index:4;
     display: inline-block;
     height: 50em;
     max-width:80vw;
@@ -323,8 +357,8 @@ body {
   }
 
   #startShopping {
+    z-index:5;
     background: rgba(0, 0, 0, 0.5);
-    color: white;
     width: 30%;
     margin-left:35%;
     margin-top: -35vh;
@@ -333,6 +367,15 @@ body {
     font-size:2em;
     border-radius:3px;
     cursor: pointer;
+  }
+
+  #startShopping a{
+    color:white;
+    text-decoration:none;
+  }
+
+  #startShopping:hover{
+    background: rgba(0, 0, 0, 0.8);
   }
 
   #credits {
@@ -403,6 +446,7 @@ body {
 
   #cButtonText{
     display:inline-block;
+    cursor:pointer;
   }
 
   #contactUs{
@@ -513,6 +557,5 @@ body {
     -o-transform: skew(0deg, -6deg);
     transform: skew(0deg, -6deg);
   }​
-
 
 

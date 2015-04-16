@@ -2,27 +2,22 @@
 //  Primary Red:            rgba(191, 30, 45, 1)
 //  Secondary (light) Red:  rgba(203, 72, 85, 1)    #CB4855
 
-if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
-    $('#web').css('display', 'none');
-    $('#mobile').css('opacity', 1);
-    $('body').css('text-align', 'center');
-} else {
-    $('#web').css('opacity', 1);
-    $('#mobile').css('display', 'none');
-}
-
 //Force window to start at scrollPos=0 on load and reload
 window.onload = function() {
     setTimeout (function () {
         scrollTo(0,0);
     }, 100); //100ms for example
+
+    //detect mobile or web
     if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
         $('#web').css('display', 'none');
-        $('#mobile').css('opacity', 1);
+        $('#mobile').css('display', 'block');
         $('body').css('text-align', 'center');
     } else {
+        $('#web').css('display', '');
         $('#web').css('opacity', 1);
         $('#mobile').css('display', 'none');
+        $('#startingBackground').fadeIn(2000);
     }
 }
 
@@ -34,7 +29,9 @@ $( window ).ready(function() {
     var progressFrac = 0;
     // var hideIntro = true;
     var startGif = generateGifParams();
+    var gifDuration = 300;
     var contactClosed = true;
+    var scene1Scroll = $('#text1').offset().top;
 
 //Pin Static Scenes
     var scene2Pin = $('#scene2').offset().top;
@@ -48,13 +45,15 @@ $( window ).ready(function() {
         //Update scrolling variables on each scroll event
         scrollPos = $(document).scrollTop();
         progressFrac = scrollPos/800;
+        // $('#progressFactor').text(progressFrac);
 
         handleContactBox();
+        handleScrollArrows();
         //Intro
         handleIntro(2);
         
         //Scene 1 (Gif scene)
-        animateScene1(startGif, 300, 17);
+        animateScene1(startGif, gifDuration, 17);
 
         //Scene 2
         animateParallax('#content2', -30, 50);
@@ -81,15 +80,36 @@ $( window ).ready(function() {
         $('#contactUs').slideToggle(600);
     });
 
-    $('#scrollDown').click( function(e) {
-        $('html,body').animate({
-          scrollTop: $('#text1').offset().top-$(window).height()-80
-        }, 3000);
-        $('#scrollDown').fadeOut(1000);
-    });
+    $('.scrollClick').click(function(){
+        var dest1 = scene1Scroll-$(window).height()-80;
+        var dest2 = scene1Scroll-80;
+        var dest3 = scene1Scroll+gifDuration-10;
+        var dest4 = $('#text2').offset().top-150;
+        var dest5 = $('#text3').offset().top-150;
+        var dest6 = $('#text4').offset().top-150;
+        var dest7 = $('#startShopping').offset().top-100;
+        if (scrollPos<dest1-10){
+            scrollNext(dest1);
+        } else if (scrollPos<dest2-10){
+            scrollNext(dest2);
+        } else if (scrollPos<dest3-10){
+            scrollNext(dest3);
+        } else if (scrollPos<dest4-10){
+            scrollNext(dest4);
+        } else if (scrollPos<dest5-10){
+            scrollNext(dest5);
+        } else if (scrollPos<dest6-10){
+            scrollNext(dest6);
+        } else if (scrollPos<dest7-10){
+            scrollNext(dest7);
+        }
 
-    $('.hoverButton').hover(function() {
-        $('.hoverbutton').css('color', '#E299A0');
+        function scrollNext(dest){
+            $('#scrollDownArrows').css('-webkit-animation', 'bounce 1s 1');
+            $('html,body').animate({scrollTop: dest}, 3000, function(){
+                $('#scrollDownArrows').css('-webkit-animation', 'bounce 1s infinite');
+            });
+        }
     });
 
 // Helper functions
@@ -120,16 +140,6 @@ $( window ).ready(function() {
         $('#introElements').fadeIn(3*speed, function() {
             $('html').css({'overflow-y': 'visible'});
             $('#scrollDown').fadeIn(speed);
-            bounceArrows();
-        });
-        $('#headerButtons').fadeIn(5*speed);
-    }
-
-    function bounceArrows() {
-        $('.scrollDownArrows').effect('bounce', {times: 1}, 500, function() {
-            if (progressFrac < 1) {
-                bounceArrows();
-            }
         });
     }
 
@@ -149,8 +159,24 @@ $( window ).ready(function() {
     }
 
 //Macro Animation Helpers
+
+    function handleScrollArrows(){
+        // bounceArrows();
+        if (progressFrac>0.8 && progressFrac<2.03){
+            $('#scrollDown').fadeIn();
+            var src = $('#scrollDownArrows').attr("src").replace("White", "Red");
+            $('#scrollDownArrows').attr("src", src);
+        } else if (progressFrac>4){
+            $('#scrollDown').fadeOut();
+        }
+        else{
+            $('#scrollDown').fadeIn();
+            var src = $('#scrollDownArrows').attr("src").replace("Red", "White");
+            $('#scrollDownArrows').attr("src", src);
+        }
+    }
     function handleContactBox(){
-        if (progressFrac>1 && progressFrac<3){
+        if (progressFrac>0.76 && progressFrac<2){
             $('#contactUs').css({'border': 'solid 0.4em #BF1E2E', 'right': '0.6em', 'bottom': '3.6em'});
         }
         else{
@@ -166,34 +192,32 @@ $( window ).ready(function() {
         //     hideIntro = true;
         // }
 
-        if (progressFrac > 0.8 && progressFrac<2.8) {
-            animateStartingBackground();
-        }
+        animateStartingBackground();
     }
 
     function animateIntro () {
-        $('#scrollDown').css('display', 'default');
+        $('#scrollDown').fadeIn(0);
         var blurSize = Math.max(20-30*progressFrac, 0);
         $('#startingBackground').css({'-webkit-filter': 'blur(' + blurSize + 'px)'});
 
         var triHeight = Math.max(38-38*progressFrac, 5);
         $('#triangle').css({'border-top': triHeight + 'vw solid white'});
+        $('#triangle').css({'display': ''});
 
         var offsetHeight = Math.min(30*progressFrac, 24);
         $('#introElements').css({'top': (25-offsetHeight) + 'vw'});
-        $('#scrollDown').css({'opacity': (1 - 1.8*progressFrac)})
         $('#headerLogo').css('width', Math.max(7, 10-3*progressFrac) + 'vw');
         // $('#headerLogo').css('height', Math.max(0, 8-10*progressFrac) + 'vw'); for height scaling
-        $('#whiteHeader').css('opacity', 10*progressFrac-7.5);
-        $('#bar').css({'opacity': (0.7 + 0.4*progressFrac)});
-        $('#triangle').css({'opacity': (0.7 + 0.4*progressFrac)});
+        $('#whiteHeader').css('opacity', 50*progressFrac-35);
+        $('#bar').css({'opacity': (0.7 + 0.5*progressFrac)});
+        $('#triangle').css({'opacity': (0.7 + 0.5*progressFrac)});
         $('#introText').css('opacity', 4*progressFrac-2);
 
-        bounceArrows();
+        // bounceArrows();
     }
 
     function animateStartingBackground() {
-        var scene1Pos = Math.max(15*(progressFrac-1), 0);
+        var scene1Pos = Math.max(15*(progressFrac-0.7), 0);
         $('#startingBackground').css({'background-position': '0 -' + scene1Pos + 'vw'});
     }
 
@@ -206,19 +230,19 @@ $( window ).ready(function() {
 
         //Fade in as scrolling towards image
         if (scene1Frac>(-1) && scene1Frac<1.5) {
+            $('#triangle').css({'display': 'none'});
             $('#introText').css('opacity', 0);
-            $('#scrollDown').css('display', 'none');
 
-            $( "#swatch" ).css({'opacity': (1+scene1Frac)})
+            $( "#swatch" ).css({'opacity': (1.2+5*scene1Frac)})
         }
 
         //Pause scrolling 
         if(scene1Frac>0 && scene1Frac<1) {
             $('#scene1').css({'top': scene1Top});
-        }
-
-        if (scene1Frac>1){
+        } else if(scene1Frac>=1){
             $('#scene1').css({'top': duration});
+        } else{
+            $('#scene1').css({'top': ''});
         }
 
         //$('#progressFactor').text($('#triangle').offset().top);

@@ -7,7 +7,8 @@
     <link type="text/css" href="landing.css" rel="stylesheet" />
     <link type="text/css" href="landingMobile.css" rel="stylesheet" />
 
-    <script src="http://code.jquery.com/jquery-1.10.2.js"></script>
+    <!--<script src="http://code.jquery.com/jquery-1.10.2.js"></script>-->
+    <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
     <script src="http://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
     <!-- <script src="http://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.0/ScrollMagic.min.js"></script>
     <script src='scrollTo/jquery.scrollTo.min.js'></script> -->
@@ -19,26 +20,19 @@
       <div id='bar'></div>
       <div id='triangle'></div>
       <div id='whiteHeader'></div>
-      <div id='startingBackground'></div>
+      <!-- <div id='startingBackground'></div> -->
       <div id='progressFactor'></div>
 
       <div id='headerButtons' class='intro'> 
-        <div class='hoverButton'> Shop </div>
-        <div class='hoverButton'> Blog </div>
+        <a href="http://lovepopcards.com/shop/"> Shop </a>
+        <a href="http://lovepopcards.com/blog/"> Blog </a>
       </div>
       
       <div id='loaded'>
         <div id='introElements' class='intro'>
-          <img id='headerLogo' src='resources/logoRed.png'>
-         <!--  <div id='motto'> 
-            Give your loved ones a card that stands out. 
-            Your lovepop experience starts today.
-          </div> -->
+          <img id='headerLogo' class='scrollClick' src='resources/logoRed.png'>
           <div id='scrollDown' class='intro'>
-            <p id='scrollPrompt'>Scroll Down<p>
-            <div id='bounceContainer'>
-              <img class='scrollDownArrows' src='resources/scrollArrowsWhite.png'>
-            </div>
+              <img id='scrollDownArrows' class='scrollClick' src='resources/scrollArrowsWhite.png'>
           </div>
         </div>
         <div id='introText' class='text'>
@@ -85,7 +79,7 @@
               We put all the care that you want to express to the closest people in your life into the design and creation of these cards.
             </div>
             <div id='content4' class='content'></div>
-            <div id='startShopping'>Start Shopping Now!</div>
+            <div id='startShopping'><a href="http://lovepopcards.com/shop/">Start Shopping Now!</a></div>
           </div>
           
           
